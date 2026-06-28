@@ -1,0 +1,38 @@
+fastapi
+uvicorn[standard]
+
+# LangChain
+langchain
+langchain-core
+langchain-community
+langchain-google-genai
+langchain-openai
+langchain-mistralai
+
+# LLM SDKs
+google-generativeai
+openai
+mistralai
+
+# Vector Database
+qdrant-client
+
+# Data Processing
+pypdf
+pandas
+
+# Environment Variables
+python-dotenv
+
+# Observability
+langsmith
+
+# Google Sheets
+gspread
+google-auth
+
+# FastAPI Utilities
+python-multipart
+
+# Token Utilities
+tiktoken
