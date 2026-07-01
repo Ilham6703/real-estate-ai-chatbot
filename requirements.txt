@@ -36,3 +36,11 @@ python-multipart
 
 # Token Utilities
 tiktoken
+
+
+langchain-qdrant 
+beautifulsoup4
+
+
+gspread
+google-auth

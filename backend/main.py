@@ -1,12 +1,19 @@
 from fastapi import FastAPI
-
+from fastapi.middleware.cors import CORSMiddleware
+import backend.app.langsmith_config
 from backend.app.api import router
-
 
 app = FastAPI(
     title="Real Estate AI Chatbot API",
-    description="Backend API for the AI-powered Real Estate Chatbot",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # We'll restrict this later for production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(router)

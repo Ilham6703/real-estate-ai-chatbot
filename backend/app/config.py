@@ -1,54 +1,93 @@
+"""
+Application configuration.
+
+All environment variables are loaded from the project's .env file.
+"""
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
     """
-    Application configuration loaded from the .env file.
+    Centralized application settings.
     """
 
     # =====================================================
-    # LLM Configuration
+    # AI Provider
     # =====================================================
 
-    LLM_PROVIDER: str = "gemini"
+    LLM_PROVIDER: str = "openai"
 
-    GEMINI_API_KEY: str = ""
+    # =====================================================
+    # Gemini
+    # =====================================================
+
+    GEMINI_API_KEY: str
+    GEMINI_MODEL: str = "gemini-2.5-flash"
+    GEMINI_EMBEDDING_MODEL: str = "models/gemini-embedding-001"
+
+    # =====================================================
+    # OpenAI (Optional)
+    # =====================================================
+
     OPENAI_API_KEY: str = ""
+
+    OPENAI_CHAT_MODEL: str = "gpt-4.1-mini"
+
+    OPENAI_EMBEDDING_MODEL: str = "text-embedding-3-small"
+    # =====================================================
+    # Grok / xAI (Optional)
+    # =====================================================
+
     XAI_API_KEY: str = ""
+
+    # =====================================================
+    # Mistral (Optional)
+    # =====================================================
+
     MISTRAL_API_KEY: str = ""
 
     # =====================================================
-    # Qdrant Configuration
+    # Qdrant
     # =====================================================
 
-    QDRANT_URL: str = ""
-    QDRANT_API_KEY: str = ""
+    QDRANT_URL: str
+    QDRANT_API_KEY: str
     QDRANT_COLLECTION: str = "real_estate_chatbot"
 
     # =====================================================
-    # LangSmith Configuration
+    # LangSmith
     # =====================================================
 
     LANGSMITH_API_KEY: str = ""
-    LANGSMITH_TRACING: bool = True
+    LANGSMITH_TRACING: bool = False
     LANGSMITH_PROJECT: str = "real-estate-chatbot"
 
     # =====================================================
-    # Google Sheets Configuration
+    # Google Sheets
     # =====================================================
 
     GOOGLE_SHEET_ID: str = ""
-    GOOGLE_SERVICE_ACCOUNT_FILE: str = "credentials.json"
+    GOOGLE_SERVICE_ACCOUNT_FILE: str = ""
 
     # =====================================================
-    # FastAPI Configuration
+    # FastAPI
     # =====================================================
 
     HOST: str = "0.0.0.0"
     PORT: int = 8000
     DEBUG: bool = True
 
-    # Load variables from the root .env file
+    # =====================================================
+    # Frontend
+    # =====================================================
+
+    FRONTEND_URL: str = "http://127.0.0.1:5500"
+
+    # =====================================================
+    # Settings
+    # =====================================================
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

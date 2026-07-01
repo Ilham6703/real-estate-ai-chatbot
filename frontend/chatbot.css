@@ -1,0 +1,562 @@
+/* ==========================================
+   Global Styles
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+}
+
+
+/* ==========================================
+   Floating Chat Button
+========================================== */
+
+#chat-toggle{
+
+    position:fixed;
+
+    bottom:30px;
+    right:30px;
+
+    width:65px;
+    height:65px;
+
+    border:none;
+    outline:none;
+
+    border-radius:50%;
+
+    background:#1d9d74;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 12px 35px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+    z-index:9999;
+
+}
+
+#chat-toggle:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+/* ==========================================
+   Chat Window
+========================================== */
+
+#chat-container{
+
+    position:fixed;
+
+    bottom:110px;
+    right:30px;
+
+    width:390px;
+
+    height:670px;
+
+    background:white;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.18);
+
+    animation:popup .25s ease;
+
+    z-index:9999;
+
+}
+
+
+/* ==========================================
+   Open Animation
+========================================== */
+
+@keyframes popup{
+
+    from{
+
+        transform:translateY(30px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+}
+
+
+/* ==========================================
+   Hidden
+========================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+
+/* ==========================================
+   Header
+========================================== */
+
+.chat-header{
+
+    background:linear-gradient(
+    135deg,
+    #15803d,
+    #22c55e);
+
+    color:white;
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.chat-header h2{
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+.chat-header p{
+
+    margin-top:4px;
+
+    font-size:13px;
+
+    opacity:.9;
+
+}
+
+#close-chat{
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+
+/* ==========================================
+   Welcome Card
+========================================== */
+
+.welcome-card{
+
+    margin:18px;
+
+    background:#f5fdf8;
+
+    border:1px solid #d7f5e4;
+
+    border-radius:18px;
+
+    padding:18px;
+
+}
+
+.welcome-card h3{
+
+    font-size:20px;
+
+    margin-bottom:10px;
+
+}
+
+.welcome-card p{
+
+    color:#555;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+}
+
+.welcome-card span{
+
+    display:block;
+
+    margin-top:15px;
+
+    color:#15803d;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================
+   Suggestion Chips
+========================================== */
+
+.quick-actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    padding:0 18px 18px;
+
+}
+
+.suggestion{
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#eefaf3;
+
+    color:#15803d;
+
+    border-radius:999px;
+
+    padding:
+
+    10px 16px;
+
+    font-size:13px;
+
+    transition:.25s;
+
+}
+
+.suggestion:hover{
+
+    background:#15803d;
+
+    color:white;
+
+}
+
+
+/* ==========================================
+   Chat Area
+========================================== */
+
+#chat-box{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:20px;
+
+    background:#fafafa;
+
+}
+
+#chat-box::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+#chat-box::-webkit-scrollbar-thumb{
+
+    background:#ccc;
+
+    border-radius:20px;
+
+}
+
+
+/* ==========================================
+   Messages
+========================================== */
+
+.message{
+
+    max-width:82%;
+
+    padding:14px 18px;
+
+    margin-bottom:16px;
+
+    border-radius:18px;
+
+    line-height:1.6;
+
+    font-size:14px;
+
+    animation:fade .2s;
+
+}
+
+.user{
+
+    background:#15803d;
+
+    color:white;
+
+    margin-left:auto;
+
+    border-bottom-right-radius:5px;
+
+}
+
+.bot{
+
+    background:white;
+
+    color:#333;
+
+    border-bottom-left-radius:5px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.06);
+
+}
+
+
+/* ==========================================
+   Message Animation
+========================================== */
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+   Typing Indicator
+========================================== */
+
+#typing-indicator{
+
+    display:flex;
+
+    gap:6px;
+
+    padding:0 20px 15px;
+
+}
+
+#typing-indicator span{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#15803d;
+
+    animation:bounce 1s infinite;
+
+}
+
+#typing-indicator span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+#typing-indicator span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+@keyframes bounce{
+
+    0%,80%,100%{
+
+        transform:scale(.5);
+
+        opacity:.4;
+
+    }
+
+    40%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+
+/* ==========================================
+   Input Area
+========================================== */
+
+.chat-input{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:18px;
+
+    border-top:1px solid #eee;
+
+    background:white;
+
+}
+
+.chat-input input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:#f5f5f5;
+
+    border-radius:999px;
+
+    padding:14px 18px;
+
+    font-size:14px;
+
+}
+
+.chat-input button{
+
+    width:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#15803d;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.chat-input button:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:480px){
+
+    #chat-container{
+
+        width:100%;
+
+        height:100vh;
+
+        right:0;
+
+        bottom:0;
+
+        border-radius:0;
+
+    }
+
+    #chat-toggle{
+
+        bottom:20px;
+
+        right:20px;
+
+    }
+
+}
+
+/* Hide welcome section after first interaction */
+
+.welcome-card{
+
+    transition:all .35s ease;
+
+}
+
+.hide-home .welcome-card{
+
+    opacity:0;
+
+    max-height:0;
+
+    margin:0;
+
+    padding:0;
+
+    border:none;
+
+    overflow:hidden;
+
+}
